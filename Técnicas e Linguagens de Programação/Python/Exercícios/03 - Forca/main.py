@@ -16,6 +16,20 @@ def iniciaJogo():
 
     if quantidadeContida > 0:
         print(f"Possui {quantidadeContida}x na palavra")
+        contador = 0
+        ocorrencias = []
+        for ocorrencia in palavraEscolhida:
+            if ocorrencia == letra:
+                ocorrencias.append(contador)
+            contador += 1
+
+        contador = 0
+        while contador < len(ocorrencias):
+            palavraEscolhidaModificada[ocorrencias[0]] = letra
+            ocorrencias.pop(0)
+            contador += 1
+
+        print(ocorrencias)
     else:
         print("Não está contido!")
 
