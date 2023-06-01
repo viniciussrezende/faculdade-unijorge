@@ -7,8 +7,12 @@ escolhas = ['PALAVRA', 'OUTRA', 'COMPUTADOR', 'NOVAMENTE', 'FACULDADE']
 palavraEscolhida = choice(escolhas)
 palavraEscolhidaModificada = list('-'*len(palavraEscolhida))
 
-acertos = 0
-erros = 0
+resultado = [0 , 0]
+corpo = ''
+#
+# resultado = [ ACERTOS, ERROS  ]
+
+
 
 
 def iniciaJogo():
@@ -35,20 +39,21 @@ def iniciaJogo():
                 palavraEscolhidaModificada[ocorrencias[0]] = letra
                 ocorrencias.pop(0)
                 contador += 1
+                resultado[0] += 1
+            
             
             
         else:
             print("Você já acertou esta letra!")
     else:
         print("Não está contido!")
-        
-
+        resultado[1] += 1
 
     input("Aperte ENTER para continuar!")
 
 while True:
     system('cls')
-    opcao = input(f"Digite uma das seguintes opções:\n[1] - Nova tentativa;\n[2] - Sair\nPalavra: {palavraEscolhidaModificada}\nACERTOS: {acertos}\nERROS: {erros}\nOpção: ")
+    opcao = input(f"Digite uma das seguintes opções:\n[1] - Nova tentativa;\n[2] - Sair\nPalavra: {palavraEscolhidaModificada}\nACERTOS: {resultado[0]}\nERROS: {resultado[1]}\n{corpo}\nOpção: ")
     if opcao == '1':
         iniciaJogo()
     elif opcao == '2':
@@ -56,5 +61,17 @@ while True:
     else:
         print("Opção inválida!")
         input("Aperte ENTER para continuar!")
-    
+        
+    if resultado[1] == 1:
+        corpo = "()"
+    elif resultado[1] == 2:
+        corpo = " ()\n/"     
+    elif resultado[1] == 3:
+        corpo = " ()\n/  \\"
+    elif resultado[1] == 4:
+        corpo = " ()\n/|\\\n"
+    elif resultado[1] == 5:
+        corpo = " ()\n/|\\\n/"
+    elif resultado[1] == 6:
+        corpo = " ()\n/|\\\n/ \\"    
 
