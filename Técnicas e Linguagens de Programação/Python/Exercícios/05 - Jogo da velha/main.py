@@ -42,8 +42,44 @@ def verificaGanhador():
                 resetaJogo()
             elif verificacaoJogo == -3:
                 ganhador[1] = 1
-                resetaJogo()  
+                resetaJogo()
+    verificacaoJogo = 0
 
+    for i in range(3):
+        verificacaoJogo = 0
+        for j in range(3):
+            verificacaoJogo += matrizJogo[j][i]
+            if verificacaoJogo == 3:
+                ganhador[0] = 1
+                resetaJogo()
+            elif verificacaoJogo == -3:
+                ganhador[1] = 1
+                resetaJogo()
+    verificacaoJogo = 0
+
+    for i in range(3):
+        for j in range(3):
+            if j == i:
+                verificacaoJogo += matrizJogo[j][i]
+                if verificacaoJogo == 3:
+                    ganhador[0] = 1
+                    resetaJogo()
+                elif verificacaoJogo == -3:
+                    ganhador[1] = 1
+                    resetaJogo()
+    
+    verificacaoJogo = 0
+    for i in range(3):
+        for j in range(3):
+            if (j == 2 and i == 0) or (j == 1 and i == 1) or (j == 0 and i == 2):
+                verificacaoJogo += matrizJogo[j][i]
+                if verificacaoJogo == 3:
+                    ganhador[0] = 1
+                    resetaJogo()
+                elif verificacaoJogo == -3:
+                    ganhador[1] = 1
+                    resetaJogo()
+   
 
 
 def iniciaJogo():
